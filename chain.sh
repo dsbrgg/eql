@@ -1,0 +1,1 @@
+parity --chain ./chain.json --config ./config.toml 
