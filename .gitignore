@@ -1,0 +1,11 @@
+logs/*
+!logs/.gitkeep
+
+parity/base/*
+!parity/base/.gitkeep
+
+parity/db/*
+!parity/db/.gitkeep
+
+parity/keys/*
+!parity/keys/.gitkeep

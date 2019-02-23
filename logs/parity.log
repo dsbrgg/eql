@@ -1,8 +1,0 @@
-2019-02-23 12:21:24 UTC main INFO parity_ethereum::run  Starting Parity-Ethereum/v2.1.8-stable-3eae1d364-20181130/x86_64-macos/rustc1.30.1
-2019-02-23 12:21:24 UTC main INFO parity_ethereum::run  Keys path /Users/opuzzz/.local/share/io.parity.ethereum/keys/EQL
-2019-02-23 12:21:24 UTC main INFO parity_ethereum::run  DB path /Users/opuzzz/.local/share/io.parity.ethereum/chains/EQL/db/d97ba0f20b65fea7
-2019-02-23 12:21:24 UTC main INFO parity_ethereum::run  State DB configuration: fast
-2019-02-23 12:21:24 UTC main INFO parity_ethereum::run  Operating mode: active
-2019-02-23 12:21:24 UTC main INFO ethcore_service::service  Configured for EQL using InstantSeal engine
-2019-02-23 12:21:24 UTC IO Worker #0 INFO network  Public node URL: enode://9bd286843cba3c93435285276a848fc5b5cc2249709ec3ae9db998c53c5adf9d29f8678c6cac0e9638ba3b243e30e85a541220eebb9339c56e8ced7a2fb507db@192.168.1.82:30303
-2019-02-23 12:21:32 UTC main INFO parity_ethereum::run  Finishing work, please wait...

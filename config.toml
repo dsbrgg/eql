@@ -10,9 +10,9 @@ no_consensus = false
 no_persistent_txqueue = false
 
 chain = "EQL"
-base_path = "$HOME/.local/share/io.parity.ethereum"
-db_path = "$HOME/.local/share/io.parity.ethereum/chains"
-keys_path = "$HOME/.local/share/io.parity.ethereum/keys"
+base_path = "./parity/base"
+db_path = "./parity/db"
+keys_path = "./parity/keys"
 identity = ""
 light = false
 
