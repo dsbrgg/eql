@@ -8,23 +8,44 @@
 		}
 	},
 	"genesis": {
-		"seal": {
-			"generic": "0x0"
+    "seal": {
+      "generic": "0x0"
     },
     "difficulty": "0x20000",
-		"gasLimit": "0x2fefd8"
-	},
+    "author": "0x0000000000000000000000000000000000000000",
+    "timestamp": "0x00",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "0x",
+    "gasLimit": "0x7A1200"
+  },
 	"params": {
-    "networkID" : "0x2",
+    "gasLimitBoundDivisor": "0x0400",
+    "accountStartNonce": "0x0",
     "maximumExtraDataSize": "0x20",
     "minGasLimit": "0x1388",
-    "gasLimitBoundDivisor": "0x1000"
+    "networkID" : "0x11",
+    "registrar" : "0x0000000000000000000000000000000000001337",
+    "eip150Transition": "0x0",
+    "eip160Transition": "0x0",
+    "eip161abcTransition": "0x0",
+    "eip161dTransition": "0x0",
+    "eip155Transition": "0x0",
+    "eip98Transition": "0x7fffffffffffff",
+    "eip86Transition": "0x7fffffffffffff",
+    "maxCodeSize": 24576,
+    "maxCodeSizeTransition": "0x0",
+    "eip140Transition": "0x0",
+    "eip211Transition": "0x0",
+    "eip214Transition": "0x0",
+    "eip658Transition": "0x0",
+    "wasmActivationTransition": "0x0"
   },
 	"accounts": {
 		"0x0000000000000000000000000000000000000001": { "balance": "1", "builtin": { "name":   "ecrecover", "pricing": { "linear": { "base": 3000, "word": 0 } } } },
     "0x0000000000000000000000000000000000000002": { "balance": "1", "builtin": { "name": "sha256", "pricing": { "linear": { "base": 60, "word": 12 } } } },
     "0x0000000000000000000000000000000000000003": { "balance": "1", "builtin": { "name": "ripemd160", "pricing": { "linear": { "base": 600, "word": 120 } } } },
     "0x0000000000000000000000000000000000000004": { "balance": "1", "builtin": { "name": "identity", "pricing": { "linear": { "base": 15, "word": 3 } } } },
-    "0x6d36bea3b2a5f6c6d6f046e89c34d040bb29cc6d": { "balance": "1606938044258990275541962092341162602522202993782792835301376" }
+    "0x40aF1756e5320444494676AB9d9C11f4942D79C1": { "balance": "1606938044258990275541962092341162602522202993782792835301376" },
+    "0x6d36Bea3B2A5F6c6d6F046E89c34D040bb29cC6D": { "balance": "1606938044258990275541962092341162602522202993782792835301376" }
 	}
 }

@@ -1,0 +1,1 @@
+parity account new --chain ./chain.json --keys-path ./parity/keys 
