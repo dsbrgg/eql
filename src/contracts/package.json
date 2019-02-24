@@ -8,7 +8,9 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "web3": "^1.0.0-beta.46"
+  },
   "dependencies": {
     "solc": "^0.4.25"
   }
