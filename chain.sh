@@ -1,1 +1,1 @@
-parity --chain ./chain.json --config ./config.toml --gasprice 0
+parity --chain ./chain.json --config ./config.toml --min-gas-price 0

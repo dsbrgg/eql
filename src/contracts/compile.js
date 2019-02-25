@@ -30,7 +30,6 @@ const deploy = async (contracts) => {
   const contractsNames = []
 
   for (const key in contracts) {
-    console.log('vai entrar no loop, contract ->', key)
     const arguments = contructors[key]
     const contractName = key.substr(1, key.length)
 
@@ -40,9 +39,11 @@ const deploy = async (contracts) => {
     const Contract = new web3.eth.Contract(abi, undefined, { from, data })
     
     try {
-      const { options: { address } } = await Contract.deploy({ data, arguments }).send({ from })
-
-      addresses.push(address)
+      const deployed = await Contract
+        .deploy({ data, arguments })
+        .send({ from })
+        
+      addresses.push(deployed.options.address)
       contractsNames.push(contractName)
     } catch(err) {
       throw err
@@ -60,6 +61,7 @@ const deploy = async (contracts) => {
     return acc
   }, {})
 
-  fs.writeFileSync(`${__dirname}/address.json`, addresses)
+  
+  fs.writeFileSync(`../../address.json`, JSON.stringify(parsed, null, 2))
 })()
 
