@@ -2,16 +2,22 @@ pragma solidity ^0.4.24;
 
 
 contract Greeter {
-  /* Define variable greeting of the type string */
+
+  event NewGreeting(string greet);
+
   string greeting;
 
-  /* This runs when the contract is executed */
   constructor(string memory _greeting) public {
     greeting = _greeting;
   }
 
-  /* Main function */
   function greet() public view returns (string memory) {
     return greeting;
+  }
+
+  function changeGreet(string _greeting) public returns (string memory) {
+    greeting = _greeting;
+
+    emit NewGreeting(greeting);
   }
 }
