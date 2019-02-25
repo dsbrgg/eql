@@ -7,7 +7,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 
 const contractsPath = path.resolve(__dirname, 'contracts')
 
-const gas = 50000000
+const gas = 8000000
 const from = '0x40aF1756e5320444494676AB9d9C11f4942D79C1'
 
 const contructors = {
@@ -26,24 +26,40 @@ const compile = () =>
     }, {})
 
 const deploy = async (contracts) => {
-  const toDeploy = []
+  const addresses = []
+  const contractsNames = []
 
-  Object.keys(contracts).forEach(key => {
+  for (const key in contracts) {
+    console.log('vai entrar no loop, contract ->', key)
     const arguments = contructors[key]
+    const contractName = key.substr(1, key.length)
+
     const abi = JSON.parse(contracts[key].interface)
     const data = `0x${contracts[key].bytecode}`
 
-    const Contract = new web3.eth.Contract(abi, { from, data })
+    const Contract = new web3.eth.Contract(abi, undefined, { from, data })
     
-    // not deploying, gotta check the error
-    toDeploy.push(
-      Contract.deploy({ data, arguments }).send({ from, gas })
-    )
-  })
+    try {
+      const { options: { address } } = await Contract.deploy({ data, arguments }).send({ from })
 
-  return Promise.all(toDeploy)
+      addresses.push(address)
+      contractsNames.push(contractName)
+    } catch(err) {
+      throw err
+    }
+  }
+
+  return { contractsNames, addresses }
 }
 
 ;(async function() {
-  await deploy(compile())
+  const { contractsNames, addresses } = await deploy(compile())
+
+  const parsed = contractsNames.reduce((acc, name, index) => {
+    acc[name] = addresses[index]
+    return acc
+  }, {})
+
+  fs.writeFileSync(`${__dirname}/address.json`, addresses)
 })()
+
