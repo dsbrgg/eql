@@ -7,7 +7,8 @@ const { schema } = require('../graphql')
 
 const router = Router()
 router.all('/api/graphql', graphqlHTTP({
-	schema,
+  schema,
+  graphiql: true,
 	// https://github.com/graphql/express-graphql/issues/427
 	// https://github.com/apollographql/graphql-tools/issues/480
 	formatError: (err) => err.originalError
