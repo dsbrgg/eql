@@ -1,9 +1,10 @@
 'use strict'
 
-const checkGreeting = async (_, args, ctx) => {
-	console.log({
-    _, args
-  })
+const checkGreeting = async (payload, args, context, info) => {
+  console.log('entrou no subscription', context)
+	// console.log({
+  //   payload, args, context, info
+  // })
 }
 
 module.exports = {

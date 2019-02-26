@@ -3,9 +3,19 @@
 const Router = require('koa-router')
 const graphqlHTTP = require('koa-graphql')
 
-const { schema } = require('../graphql')
+const { execute, subscribe } = require('graphql')
+const { SubscriptionServer } = require('subscriptions-transport-ws')
+
+const { schema, subscriptions } = require('../graphql')
 
 const router = Router()
+
+const wsRouter = (server) => SubscriptionServer.create({
+  execute, subscribe, schema: subscriptions
+}, {
+  server, path: '/subscriptions'
+})
+
 router.all('/api/graphql', graphqlHTTP({
   schema,
   graphiql: true,
@@ -16,4 +26,4 @@ router.all('/api/graphql', graphqlHTTP({
 		: err
 }))
 
-module.exports = router
+module.exports = { router, wsRouter }

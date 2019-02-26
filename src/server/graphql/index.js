@@ -1,5 +1,11 @@
 'use strict'
 
-const { GreeterGraphQLSchema } = require('./schemas')
+const { 
+  GreeterGraphQLSchema, 
+  GreeterGraphQLSubscriptionSchema 
+} = require('./schemas')
 
-module.exports = { schema: GreeterGraphQLSchema }
+module.exports = { 
+  schema: GreeterGraphQLSchema,
+  subscriptions: GreeterGraphQLSubscriptionSchema
+}
