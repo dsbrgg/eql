@@ -1,7 +1,8 @@
 'use strict'
 
 const {
-	GraphQLString,
+  GraphQLString,
+  GraphQLNonNull,
   GraphQLObjectType,
   GraphQLInputObjectType
 } = require('graphql/type')
@@ -14,9 +15,9 @@ const GreeterType = new GraphQLObjectType({
 })
 
 const GreeterInputType = new GraphQLInputObjectType({
-	name: 'Greeter',
+	name: 'GreeterInput',
 	fields: {
-		greeting: { type: GraphQLString }
+		greeting: { type: GraphQLNonNull(GraphQLString) }
 	}
 })
 
