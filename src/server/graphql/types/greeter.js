@@ -21,4 +21,11 @@ const GreeterInputType = new GraphQLInputObjectType({
 	}
 })
 
-module.exports = { GreeterType, GreeterInputType }
+const GreeterEventType = new GraphQLObjectType({
+	name: 'GreeterEvent',
+	fields: {
+		greet: { type: GraphQLString }
+	}
+})
+
+module.exports = { GreeterType, GreeterInputType, GreeterEventType }
