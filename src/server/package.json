@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon --watch index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +14,8 @@
     "koa-graphql": "^0.8.0",
     "koa-router": "^7.4.0",
     "web3": "^1.0.0-beta.46"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
