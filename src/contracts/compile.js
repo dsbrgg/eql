@@ -27,6 +27,7 @@ const compile = () =>
 
 const deploy = async (contracts) => {
   const addresses = []
+  const interfaces = []
   const contractsNames = []
 
   for (const key in contracts) {
@@ -43,6 +44,7 @@ const deploy = async (contracts) => {
         .deploy({ data, arguments })
         .send({ from })
         
+      interfaces.push(abi)
       addresses.push(deployed.options.address)
       contractsNames.push(contractName)
     } catch(err) {
@@ -50,14 +52,14 @@ const deploy = async (contracts) => {
     }
   }
 
-  return { contractsNames, addresses }
+  return { contractsNames, addresses, interfaces }
 }
 
 ;(async function() {
-  const { contractsNames, addresses } = await deploy(compile())
+  const { contractsNames, addresses, interfaces } = await deploy(compile())
 
   const parsed = contractsNames.reduce((acc, name, index) => {
-    acc[name] = addresses[index]
+    acc[name] = { address: addresses[index], abi: interfaces[index] }
     return acc
   }, {})
 
