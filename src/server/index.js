@@ -16,7 +16,7 @@ app.use(pubSub)
 app.use(fromAddress)
 app.use(setupContracts(web3))
 app.use(router.routes())
-app.use(router.allowedMethods())
+// app.use(router.allowedMethods())
 
 const server = createServer(app.callback())
 

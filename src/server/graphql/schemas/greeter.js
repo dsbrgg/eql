@@ -9,11 +9,7 @@ const { GreeterGraphQLSubscription } = require('../subscriptions')
 const GreeterGraphQLSchema = new GraphQLSchema({
   query: GreeterGraphQLQuery,
   mutation: GreeterGraphQLMutation,
-  // subscription: GreeterGraphQLSubscription
-})
-
-const GreeterGraphQLSubscriptionSchema = new GraphQLSchema({
   subscription: GreeterGraphQLSubscription
 })
 
-module.exports = { GreeterGraphQLSchema, GreeterGraphQLSubscriptionSchema }
+module.exports = { GreeterGraphQLSchema }

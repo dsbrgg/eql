@@ -6,12 +6,12 @@ const graphqlHTTP = require('koa-graphql')
 const { execute, subscribe } = require('graphql')
 const { SubscriptionServer } = require('subscriptions-transport-ws')
 
-const { schema, subscriptions } = require('../graphql')
+const { schema } = require('../graphql')
 
 const router = Router()
 
 const wsRouter = (server) => SubscriptionServer.create({
-  execute, subscribe, schema: subscriptions
+  execute, subscribe, schema
 }, {
   server, path: '/subscriptions'
 })
