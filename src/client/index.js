@@ -1,26 +1,16 @@
 const ws = require('ws')
 const fetch = require('node-fetch')
 
-const { ApolloClient } = require('apollo-client')
-const { InMemoryCache } = require('apollo-cache-inmemory')
+const gql = require('graphql-tag')
 const { SubscriptionClient } = require('subscriptions-transport-ws')
-const { createHttpLink } = require('apollo-link-state')
 
 const GRAPHQL_ENDPOINT = 'ws://localhost:8080/subscriptions'
-
-const link = createHttpLink({ uri: '/graphql', fetch })
 
 const client = new SubscriptionClient(GRAPHQL_ENDPOINT, {
   reconnect: true,
 }, ws)
 
-const apolloClient = new ApolloClient({
-  link,
-  networkInterface: client,
-  cache: new InMemoryCache()
-})
-
-apolloClient.subscribe({
+client.request({
   query: gql`
     subscription {
       newGreeting {
@@ -30,6 +20,6 @@ apolloClient.subscribe({
   variables: {}
 }).subscribe({
   next (data) {
-    console.log(data)
+    console.log(JSON.stringify(data, null, 2))
   }
 })

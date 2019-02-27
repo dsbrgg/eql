@@ -2,6 +2,7 @@
 
 const {
   GraphQLString,
+  GraphQLBoolean,
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLInputObjectType
@@ -21,6 +22,13 @@ const GreeterInputType = new GraphQLInputObjectType({
 	}
 })
 
+const GreeterInputSuccessType = new GraphQLObjectType({
+	name: 'GreeterInputSuccess',
+	fields: {
+		ok: { type: GraphQLBoolean }
+	}
+})
+
 const GreeterEventType = new GraphQLObjectType({
 	name: 'GreeterEvent',
 	fields: {
@@ -28,4 +36,9 @@ const GreeterEventType = new GraphQLObjectType({
 	}
 })
 
-module.exports = { GreeterType, GreeterInputType, GreeterEventType }
+module.exports = { 
+  GreeterType, 
+  GreeterInputType, 
+  GreeterInputSuccessType, 
+  GreeterEventType
+}
